@@ -1,0 +1,436 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16713,        428]
+NotebookOptionsPosition[     15341,        403]
+NotebookOutlinePosition[     15739,        419]
+CellTagsIndexPosition[     15696,        416]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\[Bullet] Check the current \
+\[OpenCurlyDoubleQuote]ecg2vm_public_dataset\[CloseCurlyDoubleQuote] \
+directory:", "Text",
+ CellChangeTimes->{{3.85295329106138*^9, 
+  3.852953313729904*^9}},ExpressionUUID->"ea4862b6-1ab7-4c46-9036-\
+3d2165ef853b"],
+
+Cell[BoxData[
+ RowBox[{"ecg2vmPublicDatasetDir", "=", 
+  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.852953009044466*^9, 3.852953029333213*^9}},
+ CellLabel->
+  "In[2606]:=",ExpressionUUID->"12718062-fddb-460a-abf4-5ff0fddfbdb2"],
+
+Cell["\[Bullet] Inspect the subdirectories:", "Text",
+ CellChangeTimes->{{3.85295329106138*^9, 
+  3.852953331642383*^9}},ExpressionUUID->"93b1e91e-aecd-4f44-be24-\
+ee46ce500f4c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"directories", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<data_hearts_dd_0p2\>\"", "~~", "___"}], "}"}], ",", 
+     "ecg2vmPublicDatasetDir"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Column", "[", "directories", "]"}]}], "Input",
+ CellChangeTimes->{{3.852952906783505*^9, 3.852952913330902*^9}, 
+   3.852953034422185*^9, {3.85295311266534*^9, 3.8529531128776827`*^9}},
+ CellLabel->
+  "In[2607]:=",ExpressionUUID->"733b4198-857c-4a88-9ffc-54416211a8fa"],
+
+Cell["\[Bullet] Create a dataset:", "Text",
+ CellChangeTimes->{{3.85295329106138*^9, 
+  3.852953343038919*^9}},ExpressionUUID->"760747e8-90aa-4ac8-851a-\
+0cf66f59abae"],
+
+Cell[BoxData[
+ RowBox[{"ds", "=", 
+  RowBox[{"Dataset", "[", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"AssociationThread", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<name\>\"", ",", "\"\<number_files\>\"", ",", "\"\<size\>\""}], 
+         "}"}], "->", 
+        RowBox[{"{", 
+         RowBox[{"#", ",", 
+          RowBox[{"Length", "[", 
+           RowBox[{"FileNames", "[", 
+            RowBox[{"\"\<*.npy\>\"", ",", "#"}], "]"}], "]"}], ",", 
+          RowBox[{"UnitConvert", "[", 
+           RowBox[{
+            RowBox[{"Total", "[", 
+             RowBox[{"FileSize", "[", 
+              RowBox[{"FileNames", "[", 
+               RowBox[{"\"\<*.npy\>\"", ",", "#"}], "]"}], "]"}], "]"}], ",", 
+            "\"\<MB\>\""}], "]"}]}], "}"}]}], "]"}], "&"}], ",", 
+     RowBox[{"FileNames", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<data_hearts_dd_0p2\>\"", "~~", "___"}], "}"}], ",", 
+       "ecg2vmPublicDatasetDir"}], "]"}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8529530650356693`*^9, 3.8529531378463793`*^9}},
+ CellLabel->
+  "In[2609]:=",ExpressionUUID->"3d6901f9-512a-48eb-b2c3-ccc4f3b20a66"],
+
+Cell["\[Bullet] Total number of pairs: ", "Text",
+ CellChangeTimes->{{3.852953262778042*^9, 
+  3.852953279698094*^9}},ExpressionUUID->"5f56ab7d-f0c2-4469-9762-\
+f919b7e5b3fb"],
+
+Cell[BoxData[
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<Total number of pairs :\>\"", " ", "<>", 
+   RowBox[{"ToString", "[", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Normal", "[", 
+        RowBox[{"dsPaper", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "\"\<number_files\>\""}], "]"}], "]"}], "]"}], "//",
+        "Total"}], ")"}], "/", "2"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8529530650356693`*^9, 3.852953094318399*^9}, {
+  3.852953199607847*^9, 3.852953223503586*^9}},
+ CellLabel->
+  "In[2610]:=",ExpressionUUID->"e965a61c-7723-4829-89be-c73f771f0153"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"getnpy", "[", "file_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", 
+       RowBox[{"f", "=", 
+        RowBox[{"OpenRead", "[", 
+         RowBox[{"file", ",", 
+          RowBox[{"BinaryFormat", "\[Rule]", "True"}]}], "]"}]}], ",", 
+       "version", ",", "headerlen", ",", "header", ",", "dims", ",", "type", 
+       ",", "typ", ",", "byto"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"a", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"BinaryRead", "[", 
+            RowBox[{"f", ",", "\"\<Byte\>\""}], "]"}], "\[Equal]", "147"}], "&&", 
+          RowBox[{
+           RowBox[{"BinaryReadList", "[", 
+            RowBox[{"f", ",", "\"\<Character8\>\"", ",", "5"}], "]"}], 
+           "\[Equal]", 
+           RowBox[{"Characters", "[", "\"\<NUMPY\>\"", "]"}]}]}], ",", 
+         RowBox[{
+          RowBox[{"version", "=", 
+           RowBox[{"BinaryReadList", "[", 
+            RowBox[{"f", ",", "\"\<Byte\>\"", ",", "2"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"headerlen", "=", 
+           RowBox[{"BinaryRead", "[", 
+            RowBox[{"f", ",", "\"\<Integer16\>\"", ",", 
+             RowBox[{"ByteOrdering", "\[Rule]", 
+              RowBox[{"-", "1"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"header", "=", 
+           RowBox[{"StringJoin", "@", 
+            RowBox[{"BinaryReadList", "[", 
+             RowBox[{"f", ",", "\"\<Character8\>\"", ",", "headerlen"}], 
+             "]"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"dims", "=", 
+           RowBox[{
+            RowBox[{"StringCases", "[", 
+             RowBox[{"header", ",", 
+              RowBox[{
+               RowBox[{
+               "\"\<'shape':\>\"", "~~", "Whitespace", "~~", "\"\<(\>\"", "~~", 
+                RowBox[{"s", ":", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                   "NumberString", ",", "\"\<,\>\"", ",", "Whitespace"}], 
+                   "}"}], ".."}]}], "~~", "\"\<)\>\""}], "\[RuleDelayed]", 
+               RowBox[{"ToExpression", "[", 
+                RowBox[{"\"\<{\>\"", "~~", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"StringTake", "[", 
+                    RowBox[{"s", ",", 
+                    RowBox[{"-", "1"}]}], "]"}], "\[Equal]", "\"\<,\>\""}], 
+                   ",", 
+                   RowBox[{"StringDrop", "[", 
+                    RowBox[{"s", ",", 
+                    RowBox[{"-", "1"}]}], "]"}], ",", "s"}], "]"}], "~~", 
+                 "\"\<}\>\""}], "]"}]}]}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"type", "=", 
+           RowBox[{
+            RowBox[{"StringCases", "[", 
+             RowBox[{"header", ",", 
+              RowBox[{
+               RowBox[{"\"\<'descr':\>\"", "~~", "Whitespace", "~~", 
+                RowBox[{"Shortest", "[", 
+                 RowBox[{"\"\<'\>\"", "~~", 
+                  RowBox[{"s", ":", 
+                   RowBox[{"_", "..."}]}], "~~", "\"\<'\>\""}], "]"}]}], 
+               "\[RuleDelayed]", "s"}]}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"byto", "=", 
+           RowBox[{"Switch", "[", 
+            RowBox[{
+             RowBox[{"StringTake", "[", 
+              RowBox[{"type", ",", "1"}], "]"}], ",", "\"\<<\>\"", ",", 
+             RowBox[{"-", "1"}], ",", "\"\<>\>\"", ",", "1", ",", "_", ",", 
+             "$ByteOrdering"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"MemberQ", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+               "\"\<<\>\"", ",", "\"\<>\>\"", ",", "\"\<|\>\"", ",", 
+                "\"\<=\>\""}], "}"}], ",", 
+              RowBox[{"StringTake", "[", 
+               RowBox[{"type", ",", "1"}], "]"}]}], "]"}], ",", 
+            RowBox[{"type", "=", 
+             RowBox[{"StringDrop", "[", 
+              RowBox[{"type", ",", "1"}], "]"}]}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"typ", "=", 
+           RowBox[{"Switch", "[", 
+            RowBox[{
+            "type", ",", "\"\<f8\>\"", ",", "\"\<Real64\>\"", ",", 
+             "\"\<i8\>\"", ",", "\"\<Integer64\>\"", ",", "_", ",", 
+             RowBox[{
+              RowBox[{"Print", "[", 
+               RowBox[{"\"\<unknown type\>\"", ",", "header"}], "]"}], ";", 
+              "0"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"typ", "\[NotEqual]", "0"}], ",", 
+            RowBox[{"ArrayReshape", "[", 
+             RowBox[{
+              RowBox[{"BinaryReadList", "[", 
+               RowBox[{"f", ",", "typ", ",", 
+                RowBox[{"ByteOrdering", "\[Rule]", "byto"}]}], "]"}], ",", 
+              "dims"}], "]"}], ",", "0"}], "]"}]}], ",", 
+         RowBox[{
+          RowBox[{"Print", "[", "\"\<not a npy\>\"", "]"}], ";", "0"}]}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Close", "[", "f", "]"}], ";", "a"}]}], "]"}]}], ";"}]], "Input",\
+
+ CellLabel->
+  "In[2611]:=",ExpressionUUID->"7dc49068-527e-4c36-b0bb-a33f2b7ef954"],
+
+Cell["\[Bullet] Inspect one example:", "Text",
+ CellChangeTimes->{{3.852953262778042*^9, 3.852953264983508*^9}, {
+  3.852953348359725*^9, 
+  3.852953356685288*^9}},ExpressionUUID->"65a5eda8-5f66-4a19-ada9-\
+b61d1ea83996"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"InspectDir", "=", "\"\<data_hearts_dd_0p2\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"filespECG", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<pECG*.npy\>\"", ",", 
+     RowBox[{"ecg2vmPublicDatasetDir", "<>", "InspectDir"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"filesVm", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<Vm*.npy\>\"", ",", 
+     RowBox[{"ecg2vmPublicDatasetDir", "<>", "InspectDir"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"numSim", "=", 
+   RowBox[{"Length", "[", "filespECG", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ECGDataset", "=", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{"0", " ", ",", "numSim"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"VmDataset", "=", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{"0", " ", ",", "numSim"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "\[LessEqual]", "numSim"}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"i", "==", "1"}], "||", " ", 
+       RowBox[{"i", "==", "numSim"}]}], ",", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<filespECG[[\>\"", "<>", 
+        RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<]], \>\"", " ", "<>", 
+        "\"\<filesVm[[\>\"", "<>", 
+        RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<]] \>\"", "<>", 
+        "\"\<: \>\"", "<>", 
+        RowBox[{"filespECG", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "<>", "\"\<, \>\"", "<>", 
+        RowBox[{"filesVm", "[", 
+         RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"WriteString", "[", 
+        RowBox[{"\"\<stdout\>\"", ",", "\"\<...\>\""}], "]"}], ";"}]}], "]"}],
+     ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"ECGDataset", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{"getnpy", "[", 
+      RowBox[{"filespECG", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"VmDataset", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{"getnpy", "[", 
+      RowBox[{"filesVm", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ";"}]}], 
+  "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<Dimensions ECGDataset[[1]] : \>\"", " ", "<>", " ", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"Dimensions", "[", 
+     RowBox[{"ECGDataset", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<Dimensions VmDataset[[1]] : \>\"", " ", "<>", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"Dimensions", "[", 
+     RowBox[{"VmDataset", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8529533655664387`*^9, 3.852953397436308*^9}, 
+   3.8529534320148497`*^9, {3.8529534717741833`*^9, 3.852953508623577*^9}, {
+   3.852953553089583*^9, 3.852953555460072*^9}},
+ CellLabel->
+  "In[2612]:=",ExpressionUUID->"e402d7ee-9573-44af-b717-45ed7d2708e0"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"index", "=", "233"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "@", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"MatrixPlot", "[", 
+      RowBox[{
+       RowBox[{"ECGDataset", "[", 
+        RowBox[{"[", "index", "]"}], "]"}], ",", 
+       RowBox[{"ImageSize", "->", "200"}], ",", 
+       RowBox[{"Frame", "->", "False"}]}], "]"}], ",", 
+     RowBox[{"MatrixPlot", "[", 
+      RowBox[{
+       RowBox[{"VmDataset", "[", 
+        RowBox[{"[", "index", "]"}], "]"}], ",", 
+       RowBox[{"ImageSize", "->", "300"}], ",", 
+       RowBox[{"Frame", "->", "False"}]}], "]"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "@", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"ListPlot", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ECGDataset", "[", 
+          RowBox[{"[", "index", "]"}], "]"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "i"}], "]"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "10"}], "}"}]}], "]"}], ",", 
+      RowBox[{"Joined", "\[Rule]", " ", "True"}], ",", 
+      RowBox[{"PlotStyle", "->", 
+       RowBox[{"Thickness", "[", "0.008", "]"}]}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1.8"}], ",", "2.0"}], "}"}]}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "400"}], ",", 
+      RowBox[{"Axes", "->", "None"}]}], "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ListPlot", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"VmDataset", "[", 
+          RowBox[{"[", "index", "]"}], "]"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "i"}], "]"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "64"}], "}"}]}], "]"}], ",", 
+      RowBox[{"Joined", "\[Rule]", " ", "True"}], ",", 
+      RowBox[{"PlotStyle", "->", 
+       RowBox[{"Thickness", "[", "0.008", "]"}]}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "90"}], ",", "40"}], "}"}]}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "400"}], ",", 
+      RowBox[{"Axes", "->", "None"}]}], "]"}]}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.852953573987576*^9, 3.852953574550364*^9}, {
+  3.852993057922361*^9, 3.852993117992921*^9}, {3.8529934413847847`*^9, 
+  3.852993451148964*^9}},
+ CellLabel->
+  "In[2633]:=",ExpressionUUID->"d3e43c99-0def-420c-82a2-ee47722c5252"]
+},
+WindowSize->{2464, 1046},
+WindowMargins->{{408, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.0 for Mac OS X x86 (64-bit) (December 3, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"054ea5b2-927c-41c6-b5b4-88c62c6ce452"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 252, 5, 35, "Text",ExpressionUUID->"ea4862b6-1ab7-4c46-9036-3d2165ef853b"],
+Cell[813, 27, 259, 5, 30, "Input",ExpressionUUID->"12718062-fddb-460a-abf4-5ff0fddfbdb2"],
+Cell[1075, 34, 178, 3, 35, "Text",ExpressionUUID->"93b1e91e-aecd-4f44-be24-ee46ce500f4c"],
+Cell[1256, 39, 542, 12, 52, "Input",ExpressionUUID->"733b4198-857c-4a88-9ffc-54416211a8fa"],
+Cell[1801, 53, 168, 3, 35, "Text",ExpressionUUID->"760747e8-90aa-4ac8-851a-0cf66f59abae"],
+Cell[1972, 58, 1186, 31, 30, "Input",ExpressionUUID->"3d6901f9-512a-48eb-b2c3-ccc4f3b20a66"],
+Cell[3161, 91, 175, 3, 35, "Text",ExpressionUUID->"5f56ab7d-f0c2-4469-9762-f919b7e5b3fb"],
+Cell[3339, 96, 610, 15, 30, "Input",ExpressionUUID->"e965a61c-7723-4829-89be-c73f771f0153"],
+Cell[3952, 113, 5402, 126, 241, "Input",ExpressionUUID->"7dc49068-527e-4c36-b0bb-a33f2b7ef954"],
+Cell[9357, 241, 221, 4, 35, "Text",ExpressionUUID->"65a5eda8-5f66-4a19-ada9-b61d1ea83996"],
+Cell[9581, 247, 3240, 85, 283, "Input",ExpressionUUID->"e402d7ee-9573-44af-b717-45ed7d2708e0"],
+Cell[12824, 334, 2513, 67, 94, "Input",ExpressionUUID->"d3e43c99-0def-420c-82a2-ee47722c5252"]
+}
+]
+*)
+
