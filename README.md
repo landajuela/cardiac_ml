@@ -4,17 +4,15 @@
 
 The repository contains code for machine learning for cardiac electrical imaging.
 The code is specifically designed for the following paper and dataset:
-- Paper : https://cinc.org/2022/Program/accepted/26_Preprint.pdf
-- Dataset : https://library.ucsd.edu/dc/object/bb29449106
-
-Please cite the following paper if you use the code:
 - <em>M. Landajuela, R. Anirudh, J. Loscazo and R. Blake, \
     "Intracardiac Electrical Imaging Using the 12-Lead ECG: A Machine Learning Approach Using Synthetic Data," \
-    2022 Computing in Cardiology (CinC), Tampere, Finland, 2022, pp. 1-4, doi: 10.22489/CinC.2022.026.</em>
+    2022 Computing in Cardiology (CinC), Tampere, Finland, 2022, pp. 1-4, doi: 10.22489/CinC.2022.026.</em> \
+    https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10081783
 
-- <em>Landajuela, Mikel; Anirudh, Rushil; Blake, Robert (2022).\
+- <em>M. Landajuela, R, Anirudh, and R. Blake, \
      Dataset of Simulated Intracardiac Transmembrane Voltage Recordings and ECG Signals. \
-     In Lawrence Livermore National Laboratory (LLNL) Open Data Initiative. UC San Diego Library Digital Collections. https://doi.org/10.6075/J0SN094N</em>
+     In Lawrence Livermore National Laboratory (LLNL) Open Data Initiative. UC San Diego Library Digital Collections. (2022)</em> \
+      https://doi.org/10.6075/J0SN094N
 
 
 
