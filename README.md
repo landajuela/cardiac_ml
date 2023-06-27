@@ -83,6 +83,7 @@ python3 ./tools/read_training_stats.py trainingStats_errors.h5 -plot True
 ## License
 
 `cardiac_ml` is distributed under the terms of the MIT license.
+
 All new contributions must be made under the MIT license.
 
 See [LICENSE](./LICENSE),
