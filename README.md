@@ -51,10 +51,11 @@ The configuration files contain the following sections:
 | `[DATA]` | Data related parameters |
 | `[MODEL]` | Model related parameters |
 | `[TRAIN]` | Training related parameters |
-| `[SAVE]` | Saving related parameters |
+| `[SAVE]` | Logging related parameters |
 
 ## Data
-The data associated with this code is [Dataset of Simulated Intracardiac Transmembrane Voltage Recordings and ECG Signals](https://library.ucsd.edu/dc/object/bb29449106).
+The data associated with this code is provided in the following repository:
+[Dataset of Simulated Intracardiac Transmembrane Voltage Recordings and ECG Signals](https://library.ucsd.edu/dc/object/bb29449106).
 
 <details><summary>Steps to download the dataset (<strong>Click to expand</strong>)</summary>
 
@@ -75,6 +76,7 @@ datapaths_val = [full path of intracardiac_dataset]/data_hearts_dd_0p2
 </details>
 
 ## Run
+To run the code, you can use the following commands:
 ```bash
 python3 learn_ecg2time.py config/ecg2time.config
 python3 learn_ecg2vm.py config/ecg2vm.config
@@ -86,6 +88,7 @@ python3 ../learn_ecg2time.py ../config/ecg2time.config
 python3 ../learn_ecg2vm.py ../config/ecg2vm.config
 ```
 ## Post-process
+To post-process the results, you can use the following commands:
 ``` bash
 python3 ./tools/read_training_stats.py trainingStats_errors.h5 -plot True
 ```
