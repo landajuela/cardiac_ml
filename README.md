@@ -1,4 +1,6 @@
-# cardiac_ml : Machine Learning for Cardiac Electrical Imaging
+<!-- # <img src="./images/logo.png" width="64" valign="middle" alt="Spack"/> Machine Learning for Cardiac Electrical Imaging (cardiac_ml) -->
+
+# Machine Learning for Cardiac Electrical Imaging (cardiac_ml)
 
 PyTorch code for cardiac electrical imaging using the 12-lead ECG. This code is associated with the paper from CINC 2022. If you use this code, please cite:
 - Paper : https://cinc.org/2022/Program/accepted/26_Preprint.pdf
@@ -25,7 +27,6 @@ The code is organized as follows:
 | `cardiac_ml/data_interface.py` | Interface to the data |
 | `learn_ecg2time.py` | Main code for task 1 |
 | `learn_ecg2vm.py` | Main code for task 2 |
-
 
 ## Configuration files
 
@@ -64,3 +65,16 @@ python3 ../learn_ecg2vm.py ../config/ecg2vm.config
 ```
 python3 ./tools/read_training_stats.py trainingStats_errors.h5 -plot True
 ```
+
+## License
+
+`cardiac_ml` is distributed under the terms of the MIT license.
+All new contributions must be made under the MIT license.
+
+See [LICENSE](./LICENSE),
+and
+[NOTICE](./NOTICE) for details.
+
+LLNL-CODE-850741
+
+
