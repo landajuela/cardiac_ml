@@ -1,6 +1,6 @@
 <!-- # <img src="./images/logo.png" width="64" valign="middle" alt="Spack"/> Machine Learning for Cardiac Electrical Imaging (cardiac_ml) -->
 
-# Machine Learning for Cardiac Electrical Imaging (`cardiac_ml`)
+# Machine Learning for Cardiac Electrical Imaging (cardiac_ml)
 
 The repository contains code for machine learning for cardiac electrical imaging.
 The code is specifically designed for the following paper and dataset:
