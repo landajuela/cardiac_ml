@@ -21,7 +21,7 @@ pip install -r requirements.txt
 The code is organized as follows:
 | File | Description |
 | --- | --- |
-| `cardiac_ml/trainable_model.py` | Base class for all the models |
+| [`trainable_model.py`](./cardiac_ml/trainable_model.py)| Base class for all the models |
 | `cardiac_ml/io_util.py` | Utility functions for input/output |
 | `cardiac_ml/ml_util.py` | Utility functions for machine learning |
 | `cardiac_ml/data_interface.py` | Interface to the data |
