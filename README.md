@@ -42,7 +42,8 @@ The main code is in the following files:
 
 ### Configuration files
 
-Configuration files can be found in `config/ecg2*.config`. 
+Configuration files can be found in `config/ecg2*.config`.
+For example, the configuration file for `ecg2time` is [`ecg2time.config`](./config/ecg2time.config).
 The configuration files contain the following sections: 
 
 | Section | Description |
