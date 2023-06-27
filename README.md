@@ -55,7 +55,7 @@ The configuration files contain the following sections:
 ## Data
 The data associated with this code is [Dataset of Simulated Intracardiac Transmembrane Voltage Recordings and ECG Signals](https://library.ucsd.edu/dc/object/bb29449106).
 
-<details><summary>Downloand the dataset (Click to expand)</summary>
+<details><summary>Steps to download the dataset (Click to expand)</summary>
 
 To download the data, you can use the following command:
 ```bash
