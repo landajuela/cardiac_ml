@@ -6,13 +6,11 @@ The repository contains code for machine learning for cardiac electrical imaging
 The code is specifically designed for the following paper and dataset:
 - <em>M. Landajuela, R. Anirudh, J. Loscazo and R. Blake, \
     "Intracardiac Electrical Imaging Using the 12-Lead ECG: A Machine Learning Approach Using Synthetic Data," \
-    2022 Computing in Cardiology (CinC), Tampere, Finland, 2022, pp. 1-4, doi: 10.22489/CinC.2022.026.</em> \
-    https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10081783
+    2022 Computing in Cardiology (CinC), Tampere, Finland, 2022, pp. 1-4, doi: 10.22489/CinC.2022.026.</em> https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10081783
 
 - <em>M. Landajuela, R, Anirudh, and R. Blake, \
      Dataset of Simulated Intracardiac Transmembrane Voltage Recordings and ECG Signals. \
-     In Lawrence Livermore National Laboratory (LLNL) Open Data Initiative. UC San Diego Library Digital Collections. (2022)</em> \
-      https://doi.org/10.6075/J0SN094N
+     In Lawrence Livermore National Laboratory (LLNL) Open Data Initiative. UC San Diego Library Digital Collections. (2022)</em> https://doi.org/10.6075/J0SN094N
 
 
 
@@ -20,9 +18,10 @@ The code support two tasks:
 - Task 1: Activation Map Reconstruction from ECG
 - Task 2: Transmembrane potential Reconstruction from ECG
 
-## Getting Started
+## Overview
 
 ### Installation
+To install the code, you can use the following commands:
 ```bash
 python3 -m venv venv
 source venv/bin/activate
@@ -30,7 +29,8 @@ pip install -r requirements.txt
 ```
 
 ### Code Structure
-The code is organized as follows:
+
+The main code is in the following files:
 | File | Description |
 | --- | --- |
 | [`trainable_model.py`](./cardiac_ml/trainable_model.py)| Base class for all the models |
@@ -43,12 +43,21 @@ The code is organized as follows:
 ### Configuration files
 
 Configuration files can be found in `config/ecg2*.config`. 
-The configuration files contain the following sections: *[DATA], [MODEL], [TRAIN], [SAVE]*.
+The configuration files contain the following sections: 
+
+| Section | Description |
+| --- | --- |
+| `[DATA]` | Data related parameters |
+| `[MODEL]` | Model related parameters |
+| `[TRAIN]` | Training related parameters |
+| `[SAVE]` | Saving related parameters |
 
 ## Data
 The data associated with this code is [Dataset of Simulated Intracardiac Transmembrane Voltage Recordings and ECG Signals](https://library.ucsd.edu/dc/object/bb29449106).
 
-**Note**:To download the data, you can use the following command:
+<details><summary>Downloand the dataset (Click to expand)</summary>
+
+To download the data, you can use the following command:
 ```bash
 source download_intracardiac_dataset.sh
 ```
@@ -62,6 +71,8 @@ datapaths_val = [full path of intracardiac_dataset]/data_hearts_dd_0p2
 ```
 **Note**: You might want to change the train and validation data path to point to your split of the data.
 
+</details>
+
 ## Run
 ```bash
 python3 learn_ecg2time.py config/ecg2time.config
@@ -74,7 +85,7 @@ python3 ../learn_ecg2time.py ../config/ecg2time.config
 python3 ../learn_ecg2vm.py ../config/ecg2vm.config
 ```
 ## Post-process
-```
+``` bash
 python3 ./tools/read_training_stats.py trainingStats_errors.h5 -plot True
 ```
 
