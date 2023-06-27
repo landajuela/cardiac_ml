@@ -53,6 +53,23 @@ The configuration files contain the following sections:
 | `[TRAIN]` | Training related parameters |
 | `[SAVE]` | Logging related parameters |
 
+### Run
+To run the code, you can use the following commands:
+```bash
+python3 learn_ecg2time.py config/ecg2time.config
+python3 learn_ecg2vm.py config/ecg2vm.config
+```
+**Note**: You can create an input deck directory for the training `ecg2*_input_deck` 
+and run the code from the input deck directory.
+```bash
+python3 ../learn_ecg2time.py ../config/ecg2time.config
+python3 ../learn_ecg2vm.py ../config/ecg2vm.config
+```
+### Post-process
+To post-process the results, you can use the following commands:
+``` bash
+python3 ./tools/read_training_stats.py trainingStats_errors.h5 -plot True
+```
 ## Data
 The data associated with this code is provided in the following repository:
 [Dataset of Simulated Intracardiac Transmembrane Voltage Recordings and ECG Signals](https://library.ucsd.edu/dc/object/bb29449106).
@@ -75,23 +92,7 @@ datapaths_val = [full path of intracardiac_dataset]/data_hearts_dd_0p2
 
 </details>
 
-## Run
-To run the code, you can use the following commands:
-```bash
-python3 learn_ecg2time.py config/ecg2time.config
-python3 learn_ecg2vm.py config/ecg2vm.config
-```
-**Note**: You can create an input deck directory for the training `ecg2*_input_deck` 
-and run the code from the input deck directory.
-```bash
-python3 ../learn_ecg2time.py ../config/ecg2time.config
-python3 ../learn_ecg2vm.py ../config/ecg2vm.config
-```
-## Post-process
-To post-process the results, you can use the following commands:
-``` bash
-python3 ./tools/read_training_stats.py trainingStats_errors.h5 -plot True
-```
+
 
 ## License
 
