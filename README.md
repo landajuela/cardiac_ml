@@ -2,21 +2,19 @@
 
 # <img src="./images/logo.png" width="64" valign="middle" alt="Spack"/> Machine Learning for Cardiac Electrical Imaging
 
-The repository contains code for machine learning for cardiac electrical imaging.
-The code is specifically designed for the following paper and dataset:
-- <em> **(Paper)** M. Landajuela, R. Anirudh, J. Loscazo and R. Blake, \
-    "Intracardiac Electrical Imaging Using the 12-Lead ECG: A Machine Learning Approach Using Synthetic Data," \
-    2022 Computing in Cardiology (CinC), Tampere, Finland, 2022, pp. 1-4, doi: 10.22489/CinC.2022.026.</em> https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10081783
+Welcome to the GitHub repository for machine learning in cardiac electrical imaging! This repository contains code specifically tailored for the research paper and dataset described below:
 
-- <em> **(Dataset)** M. Landajuela, R, Anirudh, and R. Blake, \
-     Dataset of Simulated Intracardiac Transmembrane Voltage Recordings and ECG Signals. \
-     In Lawrence Livermore National Laboratory (LLNL) Open Data Initiative. UC San Diego Library Digital Collections. (2022)</em> https://doi.org/10.6075/J0SN094N
+- **(Paper)** M. Landajuela, R. Anirudh, J. Loscazo, and R. Blake, "Intracardiac Electrical Imaging Using the 12-Lead ECG: A Machine Learning Approach Using Synthetic Data," presented at the 2022 Computing in Cardiology (CinC) conference in Tampere, Finland. The paper can be accessed [here](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10081783). It is published in the proceedings of CinC 2022, pages 1-4. The DOI for this paper is [10.22489/CinC.2022.026](https://doi.org/10.22489/CinC.2022.026).
 
+- **(Dataset)** M. Landajuela, R. Anirudh, and R. Blake have curated a comprehensive dataset of simulated intracardiac transmembrane voltage recordings and ECG signals. This dataset is part of the Lawrence Livermore National Laboratory (LLNL) Open Data Initiative and can be accessed [here](https://doi.org/10.6075/J0SN094N). The dataset was published in the UC San Diego Library Digital Collections in 2022.
 
+The code in this repository supports two primary tasks:
 
-The code support two tasks:
-- Task 1: Activation Map Reconstruction from ECG
-- Task 2: Transmembrane potential Reconstruction from ECG
+1. Activation Map Reconstruction from ECG
+2. Transmembrane Potential Reconstruction from ECG
+
+Feel free to explore the code and utilize it for your own research or projects related to cardiac electrical imaging.
+
 
 ## Overview
 
