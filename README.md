@@ -82,7 +82,7 @@ Note that the recording locations are in the same coordinate system as the mesh.
 Also, the indices of the recorded transmembrane potentials correspond to the indices of the recording locations.
 
 <p align="center">
-    <img src="./images/state.png" width=400/>
+    <img src="./images/state.png" width=200/>
 </p>
 
 ## Data
