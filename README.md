@@ -8,6 +8,8 @@ Welcome to the GitHub repository for machine learning in cardiac electrical imag
 
 - **(Dataset)** M. Landajuela, R. Anirudh, and R. Blake have curated a comprehensive dataset of simulated intracardiac transmembrane voltage recordings and ECG signals. This dataset is part of the Lawrence Livermore National Laboratory (LLNL) Open Data Initiative and can be accessed [here](https://doi.org/10.6075/J0SN094N). The dataset was published in the UC San Diego Library Digital Collections in 2022.
 
+- **(Blog Post)** M. Landajuela, Machine Learning for Cardiac Electrocardiography [here](https://medium.com/@mikel.landajuela.larma/machine-learning-for-cardiac-electrocardiography-a20661669937).
+
 The code in this repository supports two primary tasks:
 
 1. Activation Map Reconstruction from ECG
