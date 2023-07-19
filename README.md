@@ -16,6 +16,10 @@ The code in this repository supports two primary tasks:
 Feel free to explore the code and utilize it for your own research or projects related to cardiac electrical imaging.
 
 
+<p align="center">
+    <img src="./images/cardiac_ml.gif" width=600/>
+</p>
+
 ## Overview
 
 ### Installation
