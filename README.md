@@ -71,8 +71,6 @@ python3 ./tools/read_training_stats.py trainingStats_errors.h5 -plot True
 
 ### Visualization
 
-<summary>Mesh files and recording locations</summary>
-
 We provide a typical heart mesh and the corresponding recording locations in the `geometry` folder. 
 The mesh is in the `.vtk` format and the recording locations are in the `.csv` format.
 You can visualize the mesh and the recording locations using [ParaView](https://www.paraview.org/).
