@@ -68,6 +68,21 @@ To post-process the results, you can use the following commands:
 ``` bash
 python3 ./tools/read_training_stats.py trainingStats_errors.h5 -plot True
 ```
+
+### Visualization
+
+<summary>Mesh files and recording locations</summary>
+
+We provide a typical heart mesh and the corresponding recording locations in the `geometry` folder. 
+The mesh is in the `.vtk` format and the recording locations are in the `.csv` format.
+You can visualize the mesh and the recording locations using [ParaView](https://www.paraview.org/).
+Note that the recording locations are in the same coordinate system as the mesh.
+Also, the indices of the recorded transmembrane potentials correspond to the indices of the recording locations.
+
+<p align="center">
+    <img src="./images/state.png" width=400/>
+</p>
+
 ## Data
 The data associated with this code is provided in the following repository:
 [Dataset of Simulated Intracardiac Transmembrane Voltage Recordings and ECG Signals](https://library.ucsd.edu/dc/object/bb29449106).
