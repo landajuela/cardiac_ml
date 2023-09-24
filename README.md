@@ -1,6 +1,9 @@
 <!-- # <img src="./images/logo.png" width="64" valign="middle" alt="Spack"/> Machine Learning for Cardiac Electrical Imaging (cardiac_ml) -->
 
 # <img src="./images/logo.png" width="64" valign="middle" alt="Spack"/> Machine Learning for Cardiac Electrical Imaging
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Status](https://img.shields.io/badge/Status-Active-green.svg)
+![Python](https://img.shields.io/badge/Python-3.8-blue.svg)
 
 Welcome to the GitHub repository for machine learning in cardiac electrical imaging! This repository contains code specifically tailored for the research paper and dataset described below:
 
